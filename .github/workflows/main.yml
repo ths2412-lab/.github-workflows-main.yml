@@ -8,4 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: cat test.txt
+
+      - name: Read test.txt
+        run: cat test.txt
+
+      - name: Create result.txt
+        run: |
+          echo "=== 검사 결과 ===" > result.txt
+          cat test.txt >> result.txt
+          echo "" >> result.txt
+          echo "=== 검사 완료 ===" >> result.txt
+
+      - name: Show result.txt
+        run: cat result.txt
